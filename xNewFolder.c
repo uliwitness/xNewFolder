@@ -20,14 +20,14 @@
 //	Prototypes
 // -----------------------------------------------------------------------------
 
-OSErr GetVRefNumAndDirIDFromPath(CharsHandle filePath, short *vRefNum, short *dirID);
+OSErr GetVRefNumAndDirIDFromPath(CharsHandle filePath, short *vRefNum, long *dirID);
 
 
 // -----------------------------------------------------------------------------
 //	GetVRefNumAndDirIDFromPath
 // -----------------------------------------------------------------------------
 
-OSErr GetVRefNumAndDirIDFromPath(CharsHandle filePath, short *vRefNum, short *dirID) {
+OSErr GetVRefNumAndDirIDFromPath(CharsHandle filePath, short *vRefNum, long *dirID) {
 	OSErr		err = noErr;
 	Str255		errStr = {0};
 	AliasHandle	alias = NULL;
@@ -92,7 +92,7 @@ void xcmdmain(void)
 {
 	Str255 		errStr = {0};
 	OSErr 		err = noErr;
-	short 		dirID = 0;
+	long 		dirID = 0;
 	short 		fRefNum = 0;
 	short 		vRefNum = 0;
 	short 		dirIndex = 0;
@@ -130,7 +130,7 @@ void xcmdmain(void)
 		AppendReturnValue("\pSyntax: xNewFolder <parent folder path>, <new folder name>");
 		return;
 	} else if (strcmp("!", *folderPath) == 0) {
-		AppendReturnValue("\p(c) Copyright 2021 by Uli Kusterer, all rights reserved.");
+		AppendReturnValue("\p1.1, (c) Copyright 2021 by Uli Kusterer, all rights reserved.");
 		return;
 	}
 	
